@@ -1,0 +1,229 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 3px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 25%);
+  grid-gap: 4px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container .grid-item {
+  animation-fill-mode: backwards;
+  overflow: hidden;
+  --stragger-delay: 110ms;
+/*   
+  animation-iteration-count: infinite;     */
+}
+
+.container .grid-item img {
+  width: 100%;
+  height: 100%;
+  /* padding: 4px;
+     border: 1px solid grey; */
+  transition: transform 0.5s linear;
+  cursor: pointer;
+}
+
+.container .grid-item img:nth-last-child(1):hover {
+  transform: scale(1.4) rotate(10deg);
+}
+
+.container .grid-item img:hover {
+  transform: scale(1.3) rotate(10deg);
+  filter: grayscale(1);
+}
+
+.container .grid-item:nth-child(1) {
+  animation-name: animate-imgs;
+  animation-delay: calc(1 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+
+.container .grid-item:nth-child(2) {
+  animation-name: animate-imgs;
+  animation-delay: calc(2 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(3) {
+  animation-name: animate-imgs;
+  animation-delay: calc(3 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(4) {
+  animation-name: animate-imgs;
+  animation-delay: calc(4 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(5) {
+  animation-name: animate-imgs;
+  animation-delay: calc(5 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(7) {
+  animation-name: animate-imgs;
+  animation-delay: calc(6 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(9) {
+  animation-name: animate-imgs;
+  animation-delay: calc(7 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(14) {
+  animation-name: animate-imgs;
+  animation-delay: calc(8 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(13) {
+  animation-name: animate-imgs;
+  animation-delay: calc(9 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(12) {
+  animation-name: animate-imgs;
+  animation-delay: calc(10 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(11) {
+  animation-name: animate-imgs;
+  animation-delay: calc(11 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(10) {
+  animation-name: animate-imgs;
+  animation-delay: calc(12 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(8) {
+  animation-name: animate-imgs;
+  animation-delay: calc(13 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-child(6) {
+  animation-name: animate-imgs;
+  animation-delay: calc(14 * var(--stragger-delay));
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+}
+.container .grid-item:nth-last-child(1) {
+  grid-column: 2 / 5;
+  grid-row: 2 / 4;
+  animation-name: animate-imgs-last;
+  animation-delay: calc(15 * var(--stragger-delay));
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
+}
+
+@keyframes animate-imgs-last {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes animate-imgs {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 10;
+}
+
+.modal .content {
+  width: 800px;
+  margin: auto;
+  display: block;
+  margin-top: 5%;
+}
+
+.modal .content img {
+  width: 100%;
+  border: 1px solid white;
+}
+
+.content img,
+.caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.modal .caption {
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.modal .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.modal .close-btn img {
+  width: 50px;
+  height: 50px;
+}
+
+@media only screen and (max-width: 700px){
+  .modal .content img {
+    width: 100%;
+  }
+}
